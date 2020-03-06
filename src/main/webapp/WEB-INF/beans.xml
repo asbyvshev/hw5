@@ -33,17 +33,22 @@
     </bean>
     <bean id="templateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine">
         <property name="templateResolver" ref="templateResolver" />
+        <property name="additionalDialects">
+            <set>
+                <bean class="org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect"/>
+            </set>
+        </property>
     </bean>
     <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine" />
-        <property name="characterEncoding" value="UTF-8"/>
+        <property name="characterEncoding" value="UTF-8" />
     </bean>
 
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-<!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/geek_db?useSSL=false"/>-->
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/geek_library?useSSL=false"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/geek_db_2?useSSL=false"/>
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/geek_library?useSSL=false"/>-->
         <property name="user" value="geek"/>
         <property name="password" value="geek"/>
         <property name="minPoolSize" value="5"/>
@@ -51,7 +56,11 @@
         <property name="maxIdleTime" value="30000"/>
     </bean>
 
-    <jpa:repositories base-package="com.geekbrains"/>
+    <!--<bean id="authenticationProvider" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
+    <!--<constructor-arg name="strength" value="10" />-->
+    <!--</bean>-->
+
+    <jpa:repositories base-package="com.geekbrains.repositories"/>
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
