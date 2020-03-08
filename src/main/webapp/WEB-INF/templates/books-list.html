@@ -1,8 +1,9 @@
-<!--/*@thymesVar id="studentsList" type="java.util.List<com.geekbrains.entities.Student>"*/-->
+
 
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <title>Books List</title>
@@ -39,7 +40,7 @@
             <td th:text="${book.shortDescription}"/>
             <td th:text="${book.yearOfIssue}"/>
             <td>
-                <a class="btn btn-danger" th:href="@{'/books/remove/' + ${book.id}}" role="button">Remove</a>
+                <a sec:authorize="hasRole('ADMIN')" class="btn btn-danger" th:href="@{'/books/remove/' + ${book.id}}" role="button">Remove</a>
             </td>
         </tr>
     </table>

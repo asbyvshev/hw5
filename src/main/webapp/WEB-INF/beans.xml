@@ -56,9 +56,9 @@
         <property name="maxIdleTime" value="30000"/>
     </bean>
 
-    <!--<bean id="authenticationProvider" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
-    <!--<constructor-arg name="strength" value="10" />-->
-    <!--</bean>-->
+    <bean id="authenticationProvider" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    <constructor-arg name="strength" value="10" />
+    </bean>
 
     <jpa:repositories base-package="com.geekbrains.repositories"/>
 

@@ -23,5 +23,6 @@ public class BooksService {
         return (List<Book>) booksRepository.findAll();
     }
 
-    public void addBooks (Book book) {booksRepository.save(book);}
+    public void addBook (Book book) {booksRepository.save(book);}
+    public void delById (Long Id) {booksRepository.deleteById(Id);}
 }
