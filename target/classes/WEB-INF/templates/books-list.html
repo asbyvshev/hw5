@@ -27,6 +27,7 @@
     <table class="table">
         <thead>
         <tr class="thead-dark">
+            <td>Image</td>
             <td>Id</td>
             <td>Title</td>
             <td>Description</td>
@@ -34,6 +35,7 @@
         </tr>
         </thead>
         <tr th:each="book : ${booksList}">
+            <td th:text="images"/>
             <td th:text="${book.id}"/>
             <td th:text="${book.title}"/>
             <td th:text="${book.shortDescription}"/>
