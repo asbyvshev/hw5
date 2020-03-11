@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+// REST добавить
 @Entity
 @Table(name = "books_images")
 @Data
